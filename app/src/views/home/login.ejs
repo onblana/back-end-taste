@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="/js/home/login.js"></script>
+  <script defer src="/js/home/login.js"></script>
   <title>백엔드 맛보기</title>
 </head>
 <body>
-  <input type="text" placeholder="아이디"><br>
-  <input type="text" placeholder="비밀번호"><br>
-  <button>로그인</button>
+  <input id="id" type="text" placeholder="아이디"><br/>
+  <input id="pw" type="text" placeholder="비밀번호"><br/>
+  <button>로그인</button><br/>
+  <br/>
+  <button onclick="location.href='http://localhost:3000'" type="button">루트 페이지로 이동</button><br/>
 </body>
 </html>
