@@ -18,7 +18,17 @@ const login = () => {
     body: JSON.stringify(req),
   })
     .then((res) => res.json())
-    .then(console.log); // .then((res) => console.log(res))과 동일함. 생략이 가능.
+    //.then(console.log); // .then((res) => console.log(res))과 동일함. 생략이 가능.
+    .then((res) => {
+      if (res.success) {
+        location.href = "/";
+      } else {
+        alert(res.msg);
+      }
+    })
+    .catch((err) => {
+      console.error("로그인 중 문제 발생");
+    });
 };
 
 loginBtn.addEventListener("click", login);
