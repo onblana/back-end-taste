@@ -1,16 +1,20 @@
 "use strict";
 
 const id = document.querySelector("#id"),
+  name = document.querySelector("#name"),
   pw = document.querySelector("#pw"),
-  loginBtn = document.querySelector("#button");
+  confirmPw = document.querySelector("#confirm-pw"),
+  registerBtn = document.querySelector("#button");
 
-const login = () => {
+const register = () => {
   const req = {
     id: id.value,
+    name: name.value,
     pw: pw.value,
+    confirmPw: confirmPw.value,
   };
 
-  fetch("/login", {
+  fetch("/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -18,17 +22,16 @@ const login = () => {
     body: JSON.stringify(req),
   })
     .then((res) => res.json())
-    //.then(console.log); // .then((res) => console.log(res))과 동일함. 생략이 가능.
     .then((res) => {
       if (res.success) {
-        location.href = "/";
+        location.href = "/login";
       } else {
         alert(res.msg);
       }
     })
     .catch((err) => {
-      console.error("로그인 중 문제 발생");
+      console.error("회원가입 중 문제 발생");
     });
 };
 
-loginBtn.addEventListener("click", login);
+registerBtn.addEventListener("click", register);
